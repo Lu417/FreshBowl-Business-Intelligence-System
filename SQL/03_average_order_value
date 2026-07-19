@@ -1,0 +1,8 @@
+-- ==========================================
+-- Business Question 3
+-- What is the average order value (AOV)?
+-- ==========================================
+
+SELECT
+    ROUND(AVG(TotalAmount), 2) AS AverageOrderValue
+FROM Orders;

@@ -1,0 +1,18 @@
+-- ==========================================
+-- Business Question 8
+-- Which products have generated more than $1,000 in revenue?
+-- ==========================================
+
+
+SELECT
+    p.ProductName,
+    ROUND(SUM(oi.Quantity * oi.UnitPrice), 2) AS Revenue
+FROM OrderItems AS oi
+JOIN Products AS p
+    ON oi.ProductID = p.ProductID
+GROUP BY
+    p.ProductID,
+    p.ProductName
+HAVING
+    SUM(oi.Quantity * oi.UnitPrice) > 1000
+ORDER BY Revenue DESC;

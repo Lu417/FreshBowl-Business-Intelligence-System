@@ -1,0 +1,15 @@
+-- ==========================================
+-- Business Question 4
+-- Which products generate the highest revenue?
+-- ==========================================
+
+SELECT
+    p.ProductName,
+    ROUND(SUM(oi.Quantity * oi.UnitPrice), 2) AS Revenue
+FROM OrderItems AS oi
+INNER JOIN Products AS p
+    ON oi.ProductID = p.ProductID
+GROUP BY
+    p.ProductID,
+    p.ProductName
+ORDER BY Revenue DESC;

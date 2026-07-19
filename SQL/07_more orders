@@ -1,0 +1,20 @@
+-- ==========================================
+-- Business Question 1
+-- What is the total revenue generated?
+-- ==========================================
+
+
+SELECT
+    c.CustomerID,
+    c.FirstName,
+    c.LastName,
+    COUNT(*) AS NumberOfOrders
+FROM Orders AS o
+JOIN Customers AS c
+    ON o.CustomerID = c.CustomerID
+GROUP BY
+    c.CustomerID,
+    c.FirstName,
+    c.LastName
+HAVING COUNT(*) >= 10
+ORDER BY NumberOfOrders DESC;

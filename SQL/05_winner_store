@@ -1,0 +1,15 @@
+-- ==========================================
+-- Business Question 5
+-- Which store generated the highest revenue?
+-- ==========================================
+
+SELECT
+    s.StoreName,
+    SUM(o.TotalAmount) AS StoreRevenue
+FROM Orders AS o
+JOIN Stores AS s
+    ON o.StoreID = s.StoreID
+GROUP BY
+    s.StoreID,
+    s.StoreName
+ORDER BY StoreRevenue DESC;

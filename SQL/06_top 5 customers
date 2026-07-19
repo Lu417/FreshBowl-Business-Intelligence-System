@@ -1,0 +1,19 @@
+-- ==========================================
+-- Business Question 6
+-- Find the top 5 customers by total spending.
+-- ==========================================
+
+SELECT
+    c.CustomerID,
+    c.FirstName,
+    c.LastName,
+    SUM(o.TotalAmount) AS TotalSpending
+FROM Orders AS o
+JOIN Customers AS c
+    ON o.CustomerID = c.CustomerID
+GROUP BY
+    c.CustomerID,
+    c.FirstName,
+    c.LastName
+ORDER BY TotalSpending DESC
+LIMIT 5;

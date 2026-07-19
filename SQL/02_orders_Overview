@@ -1,0 +1,8 @@
+-- ==========================================
+-- Business Question 2
+-- How many orders did FreshBowl process during the analysis period?
+-- ==========================================
+
+SELECT
+    count(*) AS Totalorders
+FROM Orders;
